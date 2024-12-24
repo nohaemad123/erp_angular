@@ -1,0 +1,37 @@
+{
+    "titles": {
+        "login_title": "يرجى إدخال معلومات تسجيل الدخول الخاصة بك"
+    },
+    "form":{
+        "fields":
+            {
+                "name":"الاسم التجاري",
+                "name_placeholder":"ادخل الاسم التجاري",
+                "username":"اسم المستخدم",
+                "username_placeholder":"ادخل اسم المستخدم",
+                "phone":"رقم الهاتف",
+                "phone_placeholder":"ادخل رقم الهاتف",
+                "email":"البريد الالكتروني",
+                "email_placeholder":"ادخل البريد الالكتروني",
+                "password":"كلمه المرور",
+                "password_placeholder":"ادخل كلمه المرور",
+                "confirm_password":"تاكيد كلمه المرور",
+                "confirm_password_placeholder":"تاكيد كلمه المرور ",
+                "submit":"تسجيل",
+                "forget_password": "هل نسيت كلمة المرور؟",
+                "dont_have_account": "ليس لدى حساب؟",
+                "create_account": "تسجيل جديد",
+                "sign_in": "تسجيل الدخول"
+            },
+        "messages":{
+            "name_required":"الرجاء ادخال الاسم التجاري",
+            "username_required":"الرجاء ادخال اسم المستخدم",
+            "phone_required":"الرجاء ادخال رقم الهاتف",
+            "email_required":"الرجاء ادخال البريد الالكتروني",
+            "email_invalid":"البريد الالكتروني غير صحيح",
+            "password_required":"الرجاء ادخال كلمه المرور",
+            "password_invalid":"كلمه المرور يجب ان تحتوي على 8 حروف على الاقل",
+            "confirm_password_required":"الرجاء ادخال تاكيد كلمه المرور"
+        }
+    }
+}

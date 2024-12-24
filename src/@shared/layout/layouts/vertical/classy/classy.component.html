@@ -1,0 +1,157 @@
+<!-- Loading bar -->
+<fuse-loading-bar></fuse-loading-bar>
+
+<!-- Navigation -->
+<fuse-vertical-navigation
+    class="bg-white print:hidden"
+    [mode]="isScreenSmall ? 'over' : 'side'"
+    [name]="'mainNavigation'"
+    [navigation]="navigation?.default"
+    [opened]="!isScreenSmall">
+    <!-- Navigation header hook -->
+    <ng-container fuseVerticalNavigationContentHeader>
+        <div class="flex items-center w-full p-4 pl-6">
+            <!-- Logo -->
+            <div class="flex items-center justify-center">
+                <img
+                    class="w-30"
+                    src="assets/images/logo/logo-colored.svg">
+            </div>
+            <!-- Components -->
+            <!-- <div class="flex items-center ml-auto">
+                <notifications></notifications>
+                <user [showAvatar]="false"></user>
+            </div> -->
+        </div>
+        <!-- User -->
+        <!-- Button -->
+        <div class="flex border rounded-md items-center m-4">
+        <a
+        mat-button
+        class="flex justify-start p-8 w-full hover:bg-white"
+        [disableRipple]="true"
+        [matMenuTriggerFor]="userActions">
+        <div class="flex gap-2 -mx-5">
+            <div class="w-14">
+                <img
+                class="w-32 h-12 rounded-full"
+                src="/assets/images/avatars/avatar.png"
+                alt="User avatar">
+                <!-- *ngIf="user?.avatar" -->
+                <!-- <mat-icon
+                class="icon-size-14"
+                *ngIf="!user?.avatar"
+                [svgIcon]="'heroicons_solid:user-circle'"></mat-icon> -->
+            </div>
+            <div class="flex w-full justify-between min-w-40">
+
+                <div class="flex flex-col justify-center">
+                    <div class="w-full whitespace-nowrap text-lg text-ellipsis overflow-hidden text-center leading-normal font-bold">
+                        {{user?.name}}Ahmed Eissa
+                    </div>
+                    <div class="w-full text-sm mt-0.5 whitespace-nowrap text-ellipsis overflow-hidden text-center leading-normal font-medium text-secondary">
+                        {{user?.email}}Project manager
+                    </div>
+                </div>
+                <div class="flex items-center">
+
+                    <mat-icon class="mat-18">
+                        keyboard_arrow_down
+                    </mat-icon>
+                </div>
+            </div>
+        </div>
+        </a>
+    </div>
+
+    <mat-menu
+    [xPosition]="'before'"
+    #userActions="matMenu">
+    <button mat-menu-item>
+        <span class="flex flex-col leading-none">
+            <span>Signed in as</span>
+            <span class="mt-1.5 text-md font-medium">{{user?.email}}Ahmed Eissa</span>
+        </span>
+    </button>
+    <mat-divider class="my-2"></mat-divider>
+    <button mat-menu-item>
+        <mat-icon [svgIcon]="'heroicons_outline:user-circle'"></mat-icon>
+        <span>Profile</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon [svgIcon]="'heroicons_outline:cog-8-tooth'"></mat-icon>
+        <span>Settings</span>
+    </button>
+
+    <mat-divider class="my-2"></mat-divider>
+    <button
+        mat-menu-item
+        (click)="signOut()">
+        <mat-icon [svgIcon]="'heroicons_outline:arrow-right-on-rectangle'"></mat-icon>
+        <span>Sign out</span>
+    </button>
+</mat-menu>
+
+    </ng-container>
+    <!-- Navigation footer hook -->
+    <ng-container fuseVerticalNavigationContentFooter>
+        <div class="flex flex-0 items-center justify-center h-16 pr-6 pl-2 mt-2 mb-4 opacity-12">
+            <img
+                class="max-w-36"
+                src="assets/images/logo/logo-text-on-dark.svg">
+        </div>
+    </ng-container>
+</fuse-vertical-navigation>
+
+<!-- Wrapper -->
+<div class="flex flex-col flex-auto w-full min-w-0">
+
+    <!-- Header -->
+    <div class="relative flex justify-between items-center w-full h-16 px-4 md:px-6 z-49 shadow bg-card print:hidden">
+        <!-- Navigation toggle button -->
+        <div class="flex">
+
+            <button
+            mat-icon-button
+            (click)="toggleNavigation('mainNavigation')">
+            <mat-icon [svgIcon]="'heroicons_outline:bars-3'"></mat-icon>
+        </button>
+        <breadcrumbs></breadcrumbs>
+    </div>
+        <!-- Components -->
+        <div class="flex gap-4">
+            <div class="flex items-center pl-2 space-x-0.5 sm:space-x-2">
+                <!-- <languages></languages> -->
+                <!-- <fuse-fullscreen class="hidden md:block"></fuse-fullscreen> -->
+                <search class="border rounded-2xl ml-2" [appearance]="'bar'"></search>
+            <notifications class="border rounded-2xl"></notifications>
+            <!-- <shortcuts></shortcuts> -->
+            <messages class="border rounded-2xl"></messages>
+            <!-- <button
+                class="lg:hidden"
+                mat-icon-button
+                (click)="quickChat.toggle()">
+                <mat-icon [svgIcon]="'heroicons_outline:chat-bubble-left-right'"></mat-icon>
+            </button> -->
+        </div>
+        <div class="border bg-gray-50"></div>
+        <branches></branches>
+    </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex flex-col flex-auto">
+        <!-- *ngIf="true" hack is required here for router-outlet to work correctly.
+             Otherwise, layout changes won't be registered and the view won't be updated! -->
+        <router-outlet *ngIf="true"></router-outlet>
+    </div>
+
+    <!-- Footer -->
+    <!--<div class="relative flex flex-0 items-center justify-start w-full h-14 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
+        <span class="font-medium text-secondary">Fuse &copy; {{currentYear}}</span>
+    </div>-->
+
+</div>
+
+<!-- Quick chat -->
+<!-- <quick-chat #quickChat="quickChat"></quick-chat> -->
